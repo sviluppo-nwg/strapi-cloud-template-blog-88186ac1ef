@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "popups",
+  "info": {
+    "singularName": "popup",
+    "pluralName": "popups",
+    "displayName": "Vipoffice - Popup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "targetBlank": {
+      "type": "boolean",
+      "required": false
+    },
+    "data_pubblicazione": {
+      "type": "datetime",
+      "required": true
+    },
+    "data_fine_pubblicazione": {
+      "type": "datetime"
+    },
+    "attivo": {
+      "type": "boolean"
+    }
+  }
+}
