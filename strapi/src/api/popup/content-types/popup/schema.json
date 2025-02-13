@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "popups",
+  "info": {
+    "singularName": "popup",
+    "pluralName": "popups",
+    "displayName": "Popup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "id_popup": {
+      "type": "uid"
+    }
+  }
+}
