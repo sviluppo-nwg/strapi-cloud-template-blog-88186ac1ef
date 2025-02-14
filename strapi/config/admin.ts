@@ -8,7 +8,7 @@ export default ({ env }) => ({
    superAdmin: {
     email: 'cristian.accetta@gmail.com',
     password: 'punisher80',
-  },
+  },  
   transfer: {
     token: {
       salt: env('TRANSFER_TOKEN_SALT'),
