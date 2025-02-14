@@ -5,6 +5,7 @@ export default ({ env }) => ({
     keys: env.array('APP_KEYS'),
   },
   bootstrap: async ({ strapi }) => {
+    console.log('bho');
     await import('./functions/bootstrap').then((module) => module.default({ strapi }));
   },
 });
