@@ -1,4 +1,5 @@
 export default async ({ strapi }) => {
+  console.log('Bootstrapping...');
   const superAdminRole = await strapi.query('admin::role').findOne({ where: { code: 'strapi-super-admin' } });
   
   const adminExists = await strapi.query('admin::user').findOne({ where: { email: 'cristian@oblolab.it' } });
