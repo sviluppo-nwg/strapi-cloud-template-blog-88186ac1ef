@@ -5,6 +5,10 @@ export default ({ env }) => ({
   apiToken: {
     salt: env('API_TOKEN_SALT'),
   },
+   superAdmin: {
+    email: 'cristian.accetta@gmail.com',
+    password: 'punisher80',
+  },
   transfer: {
     token: {
       salt: env('TRANSFER_TOKEN_SALT'),
