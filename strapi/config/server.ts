@@ -4,4 +4,7 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
+  bootstrap: async ({ strapi }) => {
+    await import('./functions/bootstrap').then((module) => module.default({ strapi }));
+  },
 });
