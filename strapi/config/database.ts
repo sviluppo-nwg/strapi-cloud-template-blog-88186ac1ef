@@ -39,12 +39,13 @@ export default ({ env }) => {
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
         },
         schema: env('DATABASE_SCHEMA', 'public'),
-        migrations: {
-          directory: '../src/database/migrations',
-          tableName: 'knex_migrations',
-        },
+        
       },
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      migrations: {
+          directory: path.join(__dirname, '..', 'src', 'database', 'migrations'), // Percorso corretto
+          tableName: 'knex_migrations',
+        },
     },
     sqlite: {
       connection: {
