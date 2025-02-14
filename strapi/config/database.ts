@@ -40,7 +40,7 @@ export default ({ env }) => {
         },
         schema: env('DATABASE_SCHEMA', 'public'),
         migrations: {
-          directory: './src/database/migrations',
+          directory: '../src/database/migrations',
           tableName: 'knex_migrations',
         },
       },
