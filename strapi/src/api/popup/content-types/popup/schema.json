@@ -4,7 +4,8 @@
   "info": {
     "singularName": "popup",
     "pluralName": "popups",
-    "displayName": "Popup"
+    "displayName": "Popup",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,31 @@
   "attributes": {
     "id_popup": {
       "type": "uid"
+    },
+    "url_img": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "targetBlank": {
+      "type": "boolean",
+      "default": false
+    },
+    "data_pubblicazione": {
+      "type": "datetime"
+    },
+    "data_fine_pubblicazione": {
+      "type": "datetime"
+    },
+    "attivo": {
+      "type": "boolean"
+    },
+    "visibilita": {
+      "type": "string"
+    },
+    "reparto": {
+      "type": "string"
     }
   }
 }
