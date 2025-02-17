@@ -429,6 +429,43 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAvvisiAvvisi extends Struct.CollectionTypeSchema {
+  collectionName: 'avvisis';
+  info: {
+    displayName: 'Avvisi';
+    pluralName: 'avvisis';
+    singularName: 'avvisi';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    attivo: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data_fine_pubblicazione: Schema.Attribute.DateTime;
+    data_pubblicazione: Schema.Attribute.DateTime;
+    html_text: Schema.Attribute.Text;
+    id_avvisi: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::avvisi.avvisi'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    reparto: Schema.Attribute.String;
+    short_text: Schema.Attribute.String;
+    titolo: Schema.Attribute.String;
+    TRIGGER: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visibilita: Schema.Attribute.String;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -517,6 +554,7 @@ export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     reparto: Schema.Attribute.String;
     targetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    TRIGGER: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1037,6 +1075,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::author.author': ApiAuthorAuthor;
+      'api::avvisi.avvisi': ApiAvvisiAvvisi;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::popup.popup': ApiPopupPopup;

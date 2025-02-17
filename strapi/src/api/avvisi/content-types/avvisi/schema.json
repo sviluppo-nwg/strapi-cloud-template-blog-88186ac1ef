@@ -1,28 +1,26 @@
 {
   "kind": "collectionType",
-  "collectionName": "popups",
+  "collectionName": "avvisis",
   "info": {
-    "singularName": "popup",
-    "pluralName": "popups",
-    "displayName": "Popup",
-    "description": ""
+    "singularName": "avvisi",
+    "pluralName": "avvisis",
+    "displayName": "Avvisi"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "id_popup": {
-      "type": "uid"
+    "id_avvisi": {
+      "type": "boolean"
     },
-    "url_img": {
+    "titolo": {
       "type": "string"
     },
-    "url": {
+    "short_text": {
       "type": "string"
     },
-    "targetBlank": {
-      "type": "boolean",
-      "default": false
+    "html_text": {
+      "type": "text"
     },
     "data_pubblicazione": {
       "type": "datetime"
