@@ -432,6 +432,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiAvvisiAvvisi extends Struct.CollectionTypeSchema {
   collectionName: 'avvisis';
   info: {
+    description: '';
     displayName: 'Avvisi';
     pluralName: 'avvisis';
     singularName: 'avvisi';
@@ -447,7 +448,6 @@ export interface ApiAvvisiAvvisi extends Struct.CollectionTypeSchema {
     data_fine_pubblicazione: Schema.Attribute.DateTime;
     data_pubblicazione: Schema.Attribute.DateTime;
     html_text: Schema.Attribute.Text;
-    id_avvisi: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -497,6 +497,43 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCountdownCountdown extends Struct.CollectionTypeSchema {
+  collectionName: 'countdowns';
+  info: {
+    displayName: 'Countdown';
+    pluralName: 'countdowns';
+    singularName: 'countdown';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    attivo: Schema.Attribute.Boolean;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data_fine_pubblicazione: Schema.Attribute.DateTime;
+    data_pubblicazione: Schema.Attribute.DateTime;
+    deadline: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::countdown.countdown'
+    > &
+      Schema.Attribute.Private;
+    oraScadenza: Schema.Attribute.Time & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    reparto: Schema.Attribute.String;
+    testo: Schema.Attribute.Text;
+    titolo: Schema.Attribute.String;
+    TRIGGER: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    visibilita: Schema.Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -529,6 +566,44 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNewsNews extends Struct.CollectionTypeSchema {
+  collectionName: 'notizie';
+  info: {
+    displayName: 'News';
+    pluralName: 'notizie';
+    singularName: 'news';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    anteprima: Schema.Attribute.Text;
+    archive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    attivo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data: Schema.Attribute.Date;
+    data_fine_pubblicazione: Schema.Attribute.DateTime;
+    data_pubblicazione: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::news.news'> &
+      Schema.Attribute.Private;
+    macroCategory: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    reparto: Schema.Attribute.String;
+    starred: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    testo: Schema.Attribute.Text;
+    titolo: Schema.Attribute.String;
+    TRIGGER: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url_img: Schema.Attribute.String;
+    visibilita: Schema.Attribute.String;
+  };
+}
+
 export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
   collectionName: 'popups';
   info: {
@@ -547,7 +622,6 @@ export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     data_fine_pubblicazione: Schema.Attribute.DateTime;
     data_pubblicazione: Schema.Attribute.DateTime;
-    id_popup: Schema.Attribute.UID;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::popup.popup'> &
       Schema.Attribute.Private;
@@ -1077,7 +1151,9 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::avvisi.avvisi': ApiAvvisiAvvisi;
       'api::category.category': ApiCategoryCategory;
+      'api::countdown.countdown': ApiCountdownCountdown;
       'api::global.global': ApiGlobalGlobal;
+      'api::news.news': ApiNewsNews;
       'api::popup.popup': ApiPopupPopup;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

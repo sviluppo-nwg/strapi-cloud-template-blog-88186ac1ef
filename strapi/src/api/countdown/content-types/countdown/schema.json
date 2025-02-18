@@ -1,25 +1,28 @@
 {
   "kind": "collectionType",
-  "collectionName": "popups",
+  "collectionName": "countdowns",
   "info": {
-    "singularName": "popup",
-    "pluralName": "popups",
-    "displayName": "Popup",
-    "description": ""
+    "singularName": "countdown",
+    "pluralName": "countdowns",
+    "displayName": "Countdown"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "url_img": {
+    "titolo": {
       "type": "string"
     },
-    "url": {
-      "type": "string"
+    "testo": {
+      "type": "text"
     },
-    "targetBlank": {
-      "type": "boolean",
-      "default": false
+    "deadline": {
+      "type": "date",
+      "required": true
+    },
+    "oraScadenza": {
+      "type": "time",
+      "required": true
     },
     "data_pubblicazione": {
       "type": "datetime"

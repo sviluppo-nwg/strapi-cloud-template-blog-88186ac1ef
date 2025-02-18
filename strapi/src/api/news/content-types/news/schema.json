@@ -1,24 +1,26 @@
 {
   "kind": "collectionType",
-  "collectionName": "avvisis",
+  "collectionName": "notizie",
   "info": {
-    "singularName": "avvisi",
-    "pluralName": "avvisis",
-    "displayName": "Avvisi",
-    "description": ""
+    "singularName": "news",
+    "pluralName": "notizie",
+    "displayName": "News"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
+    "url_img": {
+      "type": "string"
+    },
     "titolo": {
       "type": "string"
     },
-    "short_text": {
-      "type": "string"
-    },
-    "html_text": {
+    "testo": {
       "type": "text"
+    },
+    "data": {
+      "type": "date"
     },
     "data_pubblicazione": {
       "type": "datetime"
@@ -26,8 +28,20 @@
     "data_fine_pubblicazione": {
       "type": "datetime"
     },
+    "macroCategory": {
+      "type": "string"
+    },
+    "starred": {
+      "type": "boolean",
+      "default": true
+    },
+    "archive": {
+      "type": "boolean",
+      "default": false
+    },
     "attivo": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "visibilita": {
       "type": "string"
@@ -37,6 +51,9 @@
     },
     "TRIGGER": {
       "type": "string"
+    },
+    "anteprima": {
+      "type": "text"
     }
   }
 }
