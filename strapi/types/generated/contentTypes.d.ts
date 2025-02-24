@@ -569,6 +569,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   collectionName: 'notizie';
   info: {
+    description: '';
     displayName: 'News';
     pluralName: 'notizie';
     singularName: 'news';
@@ -594,6 +595,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     reparto: Schema.Attribute.String;
     starred: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     testo: Schema.Attribute.Text;
+    testo_breve: Schema.Attribute.Text;
     titolo: Schema.Attribute.String;
     TRIGGER: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news",
     "pluralName": "notizie",
-    "displayName": "News"
+    "displayName": "News",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -53,6 +54,9 @@
       "type": "string"
     },
     "anteprima": {
+      "type": "text"
+    },
+    "testo_breve": {
       "type": "text"
     }
   }
