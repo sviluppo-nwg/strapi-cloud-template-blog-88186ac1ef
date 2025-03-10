@@ -578,7 +578,6 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    anteprima: Schema.Attribute.Text;
     archive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     attivo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     createdAt: Schema.Attribute.DateTime;
@@ -594,7 +593,13 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     reparto: Schema.Attribute.String;
     starred: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    testo: Schema.Attribute.Text;
+    testo: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     testo_breve: Schema.Attribute.Text;
     titolo: Schema.Attribute.String;
     TRIGGER: Schema.Attribute.String;

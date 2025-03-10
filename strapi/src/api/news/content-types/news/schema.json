@@ -17,9 +17,6 @@
     "titolo": {
       "type": "string"
     },
-    "testo": {
-      "type": "text"
-    },
     "data": {
       "type": "date"
     },
@@ -53,11 +50,15 @@
     "TRIGGER": {
       "type": "string"
     },
-    "anteprima": {
-      "type": "text"
-    },
     "testo_breve": {
       "type": "text"
+    },
+    "testo": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
