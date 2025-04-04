@@ -455,6 +455,7 @@ export interface ApiAvvisiAvvisi extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    qualifications: Schema.Attribute.String;
     reparto: Schema.Attribute.String;
     short_text: Schema.Attribute.String;
     titolo: Schema.Attribute.String;
@@ -592,6 +593,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     macroCategory: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    qualifications: Schema.Attribute.String;
     reparto: Schema.Attribute.String;
     starred: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     testo: Schema.Attribute.RichText &

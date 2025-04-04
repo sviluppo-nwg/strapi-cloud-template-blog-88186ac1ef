@@ -37,6 +37,9 @@
     },
     "TRIGGER": {
       "type": "string"
+    },
+    "qualifications": {
+      "type": "string"
     }
   }
 }
