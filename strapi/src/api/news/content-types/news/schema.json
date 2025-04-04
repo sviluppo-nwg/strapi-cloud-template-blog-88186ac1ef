@@ -65,6 +65,10 @@
     },
     "qualifications": {
       "type": "string"
+    },
+    "appOnly": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

@@ -580,6 +580,7 @@ export interface ApiNewsNews extends Struct.CollectionTypeSchema {
   };
   attributes: {
     app_img_url: Schema.Attribute.String;
+    appOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     archive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     attivo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     createdAt: Schema.Attribute.DateTime;
