@@ -59,6 +59,9 @@
         "preset": "defaultHtml"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "app_img_url": {
+      "type": "string"
     }
   }
 }
