@@ -38,6 +38,9 @@
     },
     "TRIGGER": {
       "type": "string"
+    },
+    "titolo": {
+      "type": "string"
     }
   }
 }

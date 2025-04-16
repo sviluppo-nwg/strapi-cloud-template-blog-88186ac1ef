@@ -639,6 +639,7 @@ export interface ApiPopupPopup extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     reparto: Schema.Attribute.String;
     targetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    titolo: Schema.Attribute.String;
     TRIGGER: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
