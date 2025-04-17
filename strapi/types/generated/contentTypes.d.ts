@@ -441,6 +441,7 @@ export interface ApiAvvisiAvvisi extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    appVisibility: Schema.Attribute.Boolean;
     attivo: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

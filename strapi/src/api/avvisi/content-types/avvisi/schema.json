@@ -40,6 +40,9 @@
     },
     "qualifications": {
       "type": "string"
+    },
+    "appVisibility": {
+      "type": "boolean"
     }
   }
 }
