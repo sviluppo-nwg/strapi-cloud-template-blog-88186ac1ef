@@ -398,6 +398,91 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAppVideoCategoryAppVideoCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'app_video_categories';
+  info: {
+    displayName: 'App_video_category';
+    pluralName: 'app-video-categories';
+    singularName: 'app-video-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    app_videos: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::app-video.app-video'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enable: Schema.Attribute.Boolean;
+    icon: Schema.Attribute.String;
+    label: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::app-video-category.app-video-category'
+    > &
+      Schema.Attribute.Private;
+    position: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAppVideoAppVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'app_videos';
+  info: {
+    displayName: 'App_video';
+    pluralName: 'app-videos';
+    singularName: 'app-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category_ids: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::app-video-category.app-video-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    enable: Schema.Attribute.Boolean;
+    enabled_user_types: Schema.Attribute.Enumeration<
+      ['influencer_green', 'rata_fissa']
+    >;
+    featured: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::app-video.app-video'
+    > &
+      Schema.Attribute.Private;
+    position: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    thumbnail_url: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vimeo_data: Schema.Attribute.String;
+    visibility_end_date: Schema.Attribute.DateTime;
+    visibilty_start_date: Schema.Attribute.DateTime;
+  };
+}
+
 export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   collectionName: 'authors';
   info: {
@@ -1161,6 +1246,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::app-video-category.app-video-category': ApiAppVideoCategoryAppVideoCategory;
+      'api::app-video.app-video': ApiAppVideoAppVideo;
       'api::author.author': ApiAuthorAuthor;
       'api::avvisi.avvisi': ApiAvvisiAvvisi;
       'api::category.category': ApiCategoryCategory;

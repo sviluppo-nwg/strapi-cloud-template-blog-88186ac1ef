@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_video_categories",
+  "info": {
+    "singularName": "app-video-category",
+    "pluralName": "app-video-categories",
+    "displayName": "App_video_category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "icon": {
+      "type": "string"
+    },
+    "position": {
+      "type": "integer"
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "app_videos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::app-video.app-video",
+      "mappedBy": "category_ids"
+    }
+  }
+}

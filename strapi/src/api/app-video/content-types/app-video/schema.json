@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_videos",
+  "info": {
+    "singularName": "app-video",
+    "pluralName": "app-videos",
+    "displayName": "App_video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "description": {
+      "type": "text"
+    },
+    "category_ids": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::app-video-category.app-video-category",
+      "inversedBy": "app_videos"
+    },
+    "vimeo_data": {
+      "type": "string"
+    },
+    "thumbnail_url": {
+      "type": "string"
+    },
+    "position": {
+      "type": "integer"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "enabled_user_types": {
+      "type": "enumeration",
+      "enum": [
+        "influencer_green",
+        "rata_fissa"
+      ]
+    },
+    "enable": {
+      "type": "boolean"
+    },
+    "visibilty_start_date": {
+      "type": "datetime"
+    },
+    "visibility_end_date": {
+      "type": "datetime"
+    }
+  }
+}
