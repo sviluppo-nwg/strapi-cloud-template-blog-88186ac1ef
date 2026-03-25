@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_video_visibilities",
+  "info": {
+    "singularName": "app-video-visibility",
+    "pluralName": "app-video-visibilities",
+    "displayName": "App_video_visibility"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "type_users": {
+      "type": "string"
+    },
+    "enable": {
+      "type": "boolean",
+      "default": true
+    },
+    "app_videos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::app-video.app-video",
+      "inversedBy": "enabled_user_types"
+    }
+  }
+}

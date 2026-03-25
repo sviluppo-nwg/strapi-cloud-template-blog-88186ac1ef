@@ -4,7 +4,8 @@
   "info": {
     "singularName": "app-video",
     "pluralName": "app-videos",
-    "displayName": "App_video"
+    "displayName": "App_video",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -35,13 +36,6 @@
     "featured": {
       "type": "boolean"
     },
-    "enabled_user_types": {
-      "type": "enumeration",
-      "enum": [
-        "influencer_green",
-        "rata_fissa"
-      ]
-    },
     "enable": {
       "type": "boolean"
     },
@@ -50,6 +44,12 @@
     },
     "visibility_end_date": {
       "type": "datetime"
+    },
+    "enabled_user_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::app-video-visibility.app-video-visibility",
+      "inversedBy": "app_videos"
     }
   }
 }

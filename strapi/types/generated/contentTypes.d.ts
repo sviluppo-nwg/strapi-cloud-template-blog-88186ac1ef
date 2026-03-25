@@ -437,9 +437,44 @@ export interface ApiAppVideoCategoryAppVideoCategory
   };
 }
 
+export interface ApiAppVideoVisibilityAppVideoVisibility
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'app_video_visibilities';
+  info: {
+    displayName: 'App_video_visibility';
+    pluralName: 'app-video-visibilities';
+    singularName: 'app-video-visibility';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    app_videos: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::app-video.app-video'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::app-video-visibility.app-video-visibility'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    type_users: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAppVideoAppVideo extends Struct.CollectionTypeSchema {
   collectionName: 'app_videos';
   info: {
+    description: '';
     displayName: 'App_video';
     pluralName: 'app-videos';
     singularName: 'app-video';
@@ -457,8 +492,9 @@ export interface ApiAppVideoAppVideo extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     enable: Schema.Attribute.Boolean;
-    enabled_user_types: Schema.Attribute.Enumeration<
-      ['influencer_green', 'rata_fissa']
+    enabled_user_types: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::app-video-visibility.app-video-visibility'
     >;
     featured: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1247,6 +1283,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::app-video-category.app-video-category': ApiAppVideoCategoryAppVideoCategory;
+      'api::app-video-visibility.app-video-visibility': ApiAppVideoVisibilityAppVideoVisibility;
       'api::app-video.app-video': ApiAppVideoAppVideo;
       'api::author.author': ApiAuthorAuthor;
       'api::avvisi.avvisi': ApiAvvisiAvvisi;
